@@ -1,16 +1,23 @@
-
-import './App.css';
-import Dashboard from './components/Dashboard'
-import React, {Fragment} from 'react'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Main from "./components/layout/Main";
+import React, { Fragment } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 function App() {
+ 
+
   return (
     <Router>
       <Fragment>
-        <Switch>
-        <Route exact path ="/" component={Dashboard}/> 
-        </Switch>
+      <Route exact path="/">
+            <Redirect to="/dashboard" />
+          </Route>
+          <Route exact path="/dashboard" component={Main} />
       </Fragment>
     </Router>
   );
