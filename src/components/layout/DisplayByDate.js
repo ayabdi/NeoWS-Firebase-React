@@ -17,7 +17,7 @@ const DisplayByDate = () => {
   const titles = ["Asteroid ID", "Name", "Miss Distance (km)"];
 
   var searchDataArray = Object.values(searchData);
-  console.log(searchDataArray);
+
 
   const rows = [...Array(Math.ceil(searchDataArray.length / 2))];
   // chunk the products into the array of rows

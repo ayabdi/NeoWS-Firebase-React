@@ -6,7 +6,7 @@ import PromptSignIn from "../modals/PromptSignInModal";
 const FavouriteButton = (asteroid) => {
     const [user] = useAuthState(auth);
     
-   const {postAsteroid} = useFirestore();
+   const {postAsteroid, isExists, loading} = useFirestore();
 
 
     const [isActive, setIsActive] = useState(false)
@@ -14,7 +14,7 @@ const FavouriteButton = (asteroid) => {
             setIsActive(true)
             setTimeout(() => {
               setIsActive(false)
-            }, 1000);
+            }, 2000);
     } 
     
    
@@ -23,8 +23,8 @@ const FavouriteButton = (asteroid) => {
     <>
     {user ?
     <div>
-         <button className = 'btn sky block circular' onClick ={() =>{ activityHandler(); postAsteroid(asteroid)}}> Add </button> 
-        <p className={isActive? "info-tog" : 'info'}>Added to favourites!</p>
+         <button className = 'btn custom sky block circular' onClick ={() =>{ activityHandler(); postAsteroid(asteroid)}}> Add </button> 
+        <p className={loading && isActive? "info-tog" : loading ? 'info' : 'info'}>{ loading && !isExists ?  'Added to favourites!' : loading ? 'Asteroid already added!' : ' asd'}</p>
     </div>
     : <PromptSignIn>Add</PromptSignIn> }
     </>

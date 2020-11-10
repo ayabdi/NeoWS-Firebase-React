@@ -54,7 +54,7 @@ const useNeoWS = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [searchData, setSearchData] = useState({});
-  console.log(startDate);
+
 
   useEffect(() => {
     var start = format(new Date(startDate), "yyyy-MM-dd");

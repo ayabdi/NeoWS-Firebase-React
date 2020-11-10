@@ -42,7 +42,7 @@ const Favourites = () => {
               </Col>
               <Col>
               <DeleteModal props = {asteroid.data}/>
-              <p class="info">Added to favourites!</p>
+    
               </Col>
             </Row>}
           </div> 

@@ -7,7 +7,7 @@ const SearchBox =  ({handleChange , value, onSubmit}) =>{
       <form id="form" onSubmit={(e) => onSubmit(e)}>
         <input
           className="search-box"
-          placeholder="Search"
+          placeholder="Search with Asteroid ID"
           value={value}
           onChange={handleChange}
         />

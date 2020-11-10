@@ -9,11 +9,23 @@ const useFirestore = () => {
 
 
 //POST Asteroid
+const [isExists, setIsExists] = useState(false)
+const [loading, setLoading] = useState(false)
   function postAsteroid(asteroid) {
+    setLoading(false)
     const { uid } = auth.currentUser;
     const data = asteroid.asteroid;
-    asteroidRef.add({ data, uid });
-    console.log(asteroid.asteroid);
+    asteroidRef
+    .where("uid", "==", uid)
+    .where("data.id", "==", data.id).limit(1)
+    .get()
+    .then((item) => {
+      if (item.docs.length === 0){
+        asteroidRef.add({ data, uid })
+        setIsExists(false)
+        setLoading(true)
+      } else {setIsExists(true) ;setLoading(true)}
+       ;})
   }
 
 //GET All Asteroids
@@ -64,6 +76,7 @@ const useFirestore = () => {
     getAsteroids,
     getAsteroidData,
     deleteAsteroid,
+    isExists, loading
   };
 };
 
