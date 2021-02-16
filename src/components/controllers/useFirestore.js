@@ -46,7 +46,6 @@ const [loading, setLoading] = useState(false)
   }
 
   //DELETE Asteroid
-
   function deleteAsteroid(asteroid) {
     const { uid } = auth.currentUser;
     asteroidRef

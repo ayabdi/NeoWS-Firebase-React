@@ -37,11 +37,13 @@ const Main = () => {
   return (
     <Fragment>
       <SideBar count={count} setCount={setCount} />
-
+      <header>
+          <h1>Near Earth Objects</h1>
+          </header>
       <section className="home">
         <div className="breaker"></div>
         <Container>
-          <h1>Near Earth Objects</h1>
+        
           <SearchBox
             handleChange={handleChange}
             value={searchID}
